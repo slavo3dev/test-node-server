@@ -4,7 +4,7 @@ const port = 3002;
 const bodyParser = require("body-parser");
 const multer = require("multer");
 const multipart = multer();
-const APP = "app3";
+const APP = "Slavo3";
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 const userInfoF = async (req, res) => {
