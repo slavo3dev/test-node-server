@@ -2,9 +2,12 @@ const express = require("express");
 const app = express();
 const port = 3002;
 const bodyParser = require("body-parser");
+const APP = "app3";
+
+// JotForm is sending enctype="multipart/form-data"
 const multer = require("multer");
 const multipart = multer();
-const APP = "Slavo3";
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 const userInfoF = async (req, res) => {
@@ -15,11 +18,16 @@ const userInfoF = async (req, res) => {
   console.log("--- ---");
   res.send().status(200);
 };
-app.post("/api/v1/test/results", userInfoF);
-app.post("/api/v2/test/results", multipart.array(), function (req, res) {
+app.post("/api/v1//vl2/ratings", userInfoF);
+app.post("/api/v1/vl2/ratings", multipart.array(), function (req, res) {
+  const parseJotForm = JSON.parse(req.body.rawRequest);
   console.log();
   console.log("--- Multi-Part Payload ---");
-  console.log(req.body);
+  console.log("Req Body: ", req.body);
+  console.log("Row Data: ", req.body.rawRequest);
+  console.log("SessionId: ", parseJotForm);
+  console.log("SessionId: ", parseJotForm.q5_howWould);
+  console.log("Results: ", parseJotForm.q6_comments);
   console.log("--- ---");
   res.send(req.body);
 });
