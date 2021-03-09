@@ -18,7 +18,7 @@ const userInfoF = async (req, res) => {
   console.log("--- ---");
   res.send().status(200);
 };
-app.post("/api/v1//vl2/ratings", userInfoF);
+app.post("/api/v1/vl2/ratings", userInfoF);
 app.post("/api/v1/vl2/ratings", multipart.array(), function (req, res) {
   const parseJotForm = JSON.parse(req.body.rawRequest);
   console.log();
